@@ -1,191 +1,216 @@
 {
   "type": "bundle",
-  "id": "bundle--3c9e1a4e-5b7f-4f92-9c51-6d3a8e2f4b10",
+  "spec_version": "2.1",
+  "id": "bundle--lockbit-2025-01-08",
   "objects": [
-
     {
       "type": "identity",
-      "spec_version": "2.1",
-      "id": "identity--a1b2c3d4-e5f6-47a8-9b1c-2d3e4f5a6b7c",
-      "created": "2025-01-08T00:00:00Z",
-      "modified": "2025-01-08T00:00:00Z",
-      "name": "National Cyber Security Authority (NCSA) - Albania",
+      "id": "identity--victim-org-001",
+      "name": "Critical Infrastructure Organization - Albania",
       "identity_class": "organization",
-      "sectors": ["government"]
+      "sectors": ["critical-infrastructure"]
     },
-
     {
       "type": "threat-actor",
-      "spec_version": "2.1",
-      "id": "threat-actor--b2f4c6d8-9a1b-4c3e-8d7f-1a2b3c4d5e6f",
-      "created": "2025-01-08T00:00:00Z",
-      "modified": "2025-01-08T00:00:00Z",
-      "name": "LockBit Operators",
-      "threat_actor_types": ["crime-syndicate"],
-      "primary_motivation": "financial-gain"
+      "id": "threat-actor--lockbit-001",
+      "name": "LockBit Ransomware Operators",
+      "description": "Operators behind LockBit 4.0 ransomware campaigns. Known for double extortion attacks using PowerShell and DLL injection.",
+      "goals": ["Financial gain through ransomware attacks"],
+      "sophistication": "advanced",
+      "resource_level": "team",
+      "primary_motivation": "financial"
     },
-
-    {
-      "type": "intrusion-set",
-      "spec_version": "2.1",
-      "id": "intrusion-set--d1e2f3a4-b5c6-4789-8a2b-3c4d5e6f7a8b",
-      "created": "2025-01-08T00:00:00Z",
-      "modified": "2025-01-08T00:00:00Z",
-      "name": "LockBit RaaS",
-      "goals": ["Financial extortion through ransomware"],
-      "resource_level": "organization"
-    },
-
-    {
-      "type": "campaign",
-      "spec_version": "2.1",
-      "id": "campaign--f7e6d5c4-b3a2-4e1f-9c8b-7a6d5e4f3b2a",
-      "created": "2025-01-08T00:00:00Z",
-      "modified": "2025-01-08T00:00:00Z",
-      "name": "LockBit 4.0 – Albania Critical Infrastructure Incident",
-      "first_seen": "2025-01-08T00:00:00Z",
-      "last_seen": "2025-01-08T00:00:00Z"
-    },
-
     {
       "type": "malware",
-      "spec_version": "2.1",
-      "id": "malware--9f8e7d6c-5b4a-4c3d-8e1f-2a3b4c5d6e7f",
-      "created": "2025-01-08T00:00:00Z",
-      "modified": "2025-01-08T00:00:00Z",
+      "id": "malware--lockbit-4-0",
       "name": "LockBit 4.0",
       "malware_types": ["ransomware"],
       "is_family": true,
-      "capabilities": [
-        "encrypt-data",
-        "exfiltration",
-        "anti-analysis"
+      "description": "A ransomware variant that encrypts files quickly and leverages double extortion.",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "lockbit-attack",
+          "phase_name": "execution"
+        },
+        {
+          "kill_chain_name": "lockbit-attack",
+          "phase_name": "impact"
+        }
       ]
     },
-
+    {
+      "type": "intrusion-set",
+      "id": "intrusion-set--lockbit-ops",
+      "name": "LockBit Operations",
+      "description": "Operations conducted by LockBit threat actors targeting critical infrastructure in Albania."
+    },
     {
       "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--11111111-2222-4aaa-8bbb-1234567890ab",
-      "created": "2025-01-08T00:00:00Z",
-      "modified": "2025-01-08T00:00:00Z",
+      "id": "attack-pattern--powershell-exec",
       "name": "PowerShell Execution",
-      "kill_chain_phases": [{
-        "kill_chain_name": "lockheed-martin-cyber-kill-chain",
-        "phase_name": "execution"
-      }],
-      "external_references": [{
-        "source_name": "mitre-attack",
-        "external_id": "T1059.001",
-        "url": "https://attack.mitre.org/techniques/T1059/001/"
-      }]
+      "description": "Use of PowerShell scripts to execute malicious code and bypass AMSI.",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1059.001"
+        }
+      ]
     },
-
     {
       "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--22222222-3333-4bbb-9ccc-234567890abc",
-      "created": "2025-01-08T00:00:00Z",
-      "modified": "2025-01-08T00:00:00Z",
-      "name": "Impair Defenses (AMSI Bypass)",
-      "kill_chain_phases": [{
-        "kill_chain_name": "lockheed-martin-cyber-kill-chain",
-        "phase_name": "defense-evasion"
-      }],
-      "external_references": [{
-        "source_name": "mitre-attack",
-        "external_id": "T1562.001",
-        "url": "https://attack.mitre.org/techniques/T1562/001/"
-      }]
+      "id": "attack-pattern--dll-injection",
+      "name": "DLL Injection",
+      "description": "Injecting malicious DLLs into processes using VirtualAlloc and VirtualProtect.",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1055.001"
+        }
+      ]
     },
-
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--33333333-4444-4ccc-8ddd-34567890abcd",
-      "created": "2025-01-08T00:00:00Z",
-      "modified": "2025-01-08T00:00:00Z",
-      "name": "Process Injection",
-      "kill_chain_phases": [{
-        "kill_chain_name": "lockheed-martin-cyber-kill-chain",
-        "phase_name": "execution"
-      }],
-      "external_references": [{
-        "source_name": "mitre-attack",
-        "external_id": "T1055",
-        "url": "https://attack.mitre.org/techniques/T1055/"
-      }]
-    },
-
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--44444444-5555-4ddd-9eee-4567890abcde",
-      "created": "2025-01-08T00:00:00Z",
-      "modified": "2025-01-08T00:00:00Z",
-      "name": "Data Encrypted for Impact",
-      "kill_chain_phases": [{
-        "kill_chain_name": "lockheed-martin-cyber-kill-chain",
-        "phase_name": "actions-on-objectives"
-      }],
-      "external_references": [{
-        "source_name": "mitre-attack",
-        "external_id": "T1486",
-        "url": "https://attack.mitre.org/techniques/T1486/"
-      }]
-    },
-
     {
       "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--55555555-6666-4eee-8fff-567890abcdef",
-      "created": "2025-01-08T00:00:00Z",
-      "modified": "2025-01-08T00:00:00Z",
-      "name": "LBB_PS1 SHA256",
+      "id": "indicator--lbb-ps1",
+      "name": "LockBit PS1 File Hash",
       "pattern": "[file:hashes.'SHA-256' = '2f5051217414f6e465f4c9ad0f59c3920efe8ff11ba8e778919bac8bd53d915c']",
       "pattern_type": "stix",
-      "valid_from": "2025-01-08T00:00:00Z"
+      "valid_from": "2025-01-08T00:00:00.000Z"
     },
-
     {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--77777777-8888-4aaa-bbbb-7890abcdef12",
-      "created": "2025-01-08T00:00:00Z",
-      "modified": "2025-01-08T00:00:00Z",
-      "relationship_type": "attributed-to",
-      "source_ref": "intrusion-set--d1e2f3a4-b5c6-4789-8a2b-3c4d5e6f7a8b",
-      "target_ref": "threat-actor--b2f4c6d8-9a1b-4c3e-8d7f-1a2b3c4d5e6f"
+      "type": "indicator",
+      "id": "indicator--extracted-ps1",
+      "name": "LockBit Extracted PS1 Hash",
+      "pattern": "[file:hashes.'SHA-256' = '1BE78F50BB267900128F819C55B8512735C22418DC8A9A7DD4FA1B30F45A5C93']",
+      "pattern_type": "stix",
+      "valid_from": "2025-01-08T00:00:00.000Z"
     },
-
     {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--88888888-9999-4bbb-cccc-890abcdef123",
-      "created": "2025-01-08T00:00:00Z",
-      "modified": "2025-01-08T00:00:00Z",
-      "relationship_type": "uses",
-      "source_ref": "intrusion-set--d1e2f3a4-b5c6-4789-8a2b-3c4d5e6f7a8b",
-      "target_ref": "malware--9f8e7d6c-5b4a-4c3d-8e1f-2a3b4c5d6e7f"
+      "type": "indicator",
+      "id": "indicator--dll-decompress",
+      "name": "LockBit DLL Decompress Hash",
+      "pattern": "[file:hashes.'SHA-256' = '998AECB51A68208CAA358645A3D842576EEC6C443C2A7693125D6887563EA2B4']",
+      "pattern_type": "stix",
+      "valid_from": "2025-01-08T00:00:00.000Z"
     },
-
+    {
+      "type": "course-of-action",
+      "id": "course-of-action--lockbit-recommendations",
+      "name": "LockBit 4.0 Mitigation Recommendations",
+      "description": "Immediate blocking of IOC, continuous SIEM analysis, staff phishing training, NextGen firewalls, VLAN segmentation, LAPS, traffic filtering, WAF, EDR/XDR, and zero-trust IAM."
+    },
+    {
+      "type": "observed-data",
+      "id": "observed-data--lockbit-ps-process",
+      "first_observed": "2025-01-08T00:00:00.000Z",
+      "last_observed": "2025-01-08T23:59:00.000Z",
+      "number_observed": 1,
+      "objects": {
+        "0": {
+          "type": "process",
+          "name": "5182.tmp",
+          "pid": 5182
+        },
+        "1": {
+          "type": "file",
+          "name": "kF0wnCN24.README.txt",
+          "path": "C:\\Users\\Public\\Desktop\\kF0wnCN24.README.txt"
+        }
+      }
+    },
     {
       "type": "report",
-      "spec_version": "2.1",
-      "id": "report--99999999-aaaa-4ccc-dddd-90abcdef1234",
-      "created": "2025-01-08T00:00:00Z",
-      "modified": "2025-01-08T00:00:00Z",
-      "name": "Technical analysis for the malicious file – LockBit 4.0",
-      "description": "Comprehensive technical and dynamic analysis of LockBit 4.0 ransomware affecting critical infrastructure in Albania.",
-      "report_types": ["threat-report"],
-      "published": "2025-01-08T00:00:00Z",
+      "id": "report--lockbit-albania-2025",
+      "name": "LockBit 4.0 Ransomware Incident Report",
+      "published": "2025-01-08T00:00:00.000Z",
       "object_refs": [
-        "identity--a1b2c3d4-e5f6-47a8-9b1c-2d3e4f5a6b7c",
-        "campaign--f7e6d5c4-b3a2-4e1f-9c8b-7a6d5e4f3b2a",
-        "malware--9f8e7d6c-5b4a-4c3d-8e1f-2a3b4c5d6e7f",
-        "indicator--55555555-6666-4eee-8fff-567890abcdef"
+        "threat-actor--lockbit-001",
+        "malware--lockbit-4-0",
+        "intrusion-set--lockbit-ops",
+        "attack-pattern--powershell-exec",
+        "attack-pattern--dll-injection",
+        "indicator--lbb-ps1",
+        "indicator--extracted-ps1",
+        "indicator--dll-decompress",
+        "course-of-action--lockbit-recommendations",
+        "observed-data--lockbit-ps-process"
       ]
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--ta-uses-malware",
+      "relationship_type": "uses",
+      "source_ref": "threat-actor--lockbit-001",
+      "target_ref": "malware--lockbit-4-0"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--intrusionset-part-of-report",
+      "relationship_type": "part-of",
+      "source_ref": "intrusion-set--lockbit-ops",
+      "target_ref": "report--lockbit-albania-2025"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--malware-uses-attack1",
+      "relationship_type": "uses",
+      "source_ref": "malware--lockbit-4-0",
+      "target_ref": "attack-pattern--powershell-exec"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--malware-uses-attack2",
+      "relationship_type": "uses",
+      "source_ref": "malware--lockbit-4-0",
+      "target_ref": "attack-pattern--dll-injection"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--indicator1-indicates-malware",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--lbb-ps1",
+      "target_ref": "malware--lockbit-4-0"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--indicator2-indicates-malware",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--extracted-ps1",
+      "target_ref": "malware--lockbit-4-0"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--indicator3-indicates-malware",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--dll-decompress",
+      "target_ref": "malware--lockbit-4-0"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--coa-mitigates-malware",
+      "relationship_type": "mitigates",
+      "source_ref": "course-of-action--lockbit-recommendations",
+      "target_ref": "malware--lockbit-4-0"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--coa-mitigates-indicator1",
+      "relationship_type": "mitigates",
+      "source_ref": "course-of-action--lockbit-recommendations",
+      "target_ref": "indicator--lbb-ps1"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--coa-mitigates-indicator2",
+      "relationship_type": "mitigates",
+      "source_ref": "course-of-action--lockbit-recommendations",
+      "target_ref": "indicator--extracted-ps1"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--coa-mitigates-indicator3",
+      "relationship_type": "mitigates",
+      "source_ref": "course-of-action--lockbit-recommendations",
+      "target_ref": "indicator--dll-decompress"
     }
-
   ]
 }
