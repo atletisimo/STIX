@@ -1,0 +1,171 @@
+{
+  "type": "bundle",
+  "id": "bundle--b7c68f11-4a6b-4c21-9f8a-8e5d7c1f2a90",
+  "spec_version": "2.1",
+  "objects": [
+    {
+      "type": "identity",
+      "id": "identity--f5f1c5f1-2d6e-4f2b-8b3e-1d9c7b3a7caa",
+      "name": "Critical Infrastructure Organization - Albania",
+      "identity_class": "organization",
+      "sectors": ["critical-infrastructure"]
+    },
+    {
+      "type": "threat-actor",
+      "id": "threat-actor--8a7e0bfa-3d3f-4b28-a02b-1a5d9b6f0c1a",
+      "name": "LockBit Ransomware Operators",
+      "description": "Operators behind LockBit 4.0 ransomware campaigns. Known for double extortion attacks using PowerShell and DLL injection.",
+      "goals": ["Financial gain through ransomware attacks"],
+      "sophistication": "advanced",
+      "resource_level": "team",
+      "primary_motivation": "financial"
+    },
+    {
+      "type": "malware",
+      "id": "malware--7f6d4c0b-8b2a-4e1b-a2c8-1e4a9d2b6c3f",
+      "name": "LockBit 4.0",
+      "malware_types": ["ransomware"],
+      "is_family": true,
+      "description": "A ransomware variant that encrypts files quickly and leverages double extortion.",
+      "kill_chain_phases": [
+        { "kill_chain_name": "lockbit-attack", "phase_name": "execution" },
+        { "kill_chain_name": "lockbit-attack", "phase_name": "impact" }
+      ]
+    },
+    {
+      "type": "intrusion-set",
+      "id": "intrusion-set--4f2d8e9b-3e2c-4b1f-9a2b-7d3c1e4a5b6f",
+      "name": "LockBit Operations",
+      "description": "Operations conducted by LockBit threat actors targeting critical infrastructure in Albania."
+    },
+    {
+      "type": "attack-pattern",
+      "id": "attack-pattern--4d8f2c3a-5a7b-4b2c-a1f4-9d3e2b5c6f7a",
+      "name": "PowerShell Execution",
+      "description": "Use of PowerShell scripts to execute malicious code and bypass AMSI.",
+      "external_references": [{ "source_name": "mitre-attack", "external_id": "T1059.001" }]
+    },
+    {
+      "type": "attack-pattern",
+      "id": "attack-pattern--3b7f4a9c-2e1d-4c8a-b1f7-6d2e9c3b8f7a",
+      "name": "DLL Injection",
+      "description": "Injecting malicious DLLs into processes using VirtualAlloc and VirtualProtect.",
+      "external_references": [{ "source_name": "mitre-attack", "external_id": "T1055.001" }]
+    },
+    {
+      "type": "indicator",
+      "id": "indicator--lbb-ps1",
+      "name": "LockBit PS1 File Hash",
+      "pattern": "[file:hashes.'SHA-256' = '2f5051217414f6e465f4c9ad0f59c3920efe8ff11ba8e778919bac8bd53d915c']",
+      "pattern_type": "stix",
+      "valid_from": "2025-01-08T00:00:00.000Z"
+    },
+    {
+      "type": "indicator",
+      "id": "indicator--extracted-ps1",
+      "name": "LockBit Extracted PS1 Hash",
+      "pattern": "[file:hashes.'SHA-256' = '1BE78F50BB267900128F819C55B8512735C22418DC8A9A7DD4FA1B30F45A5C93']",
+      "pattern_type": "stix",
+      "valid_from": "2025-01-08T00:00:00.000Z"
+    },
+    {
+      "type": "indicator",
+      "id": "indicator--dll-decompress",
+      "name": "LockBit DLL Decompress Hash",
+      "pattern": "[file:hashes.'SHA-256' = '998AECB51A68208CAA358645A3D842576EEC6C443C2A7693125D6887563EA2B4']",
+      "pattern_type": "stix",
+      "valid_from": "2025-01-08T00:00:00.000Z"
+    },
+    {
+      "type": "observed-data",
+      "id": "observed-data--0f3b4c7e-5a2d-4f1b-b2e3-7d6c1a8b9f2d",
+      "first_observed": "2025-01-08T00:00:00.000Z",
+      "last_observed": "2025-01-08T23:59:00.000Z",
+      "number_observed": 1,
+      "objects": {
+        "0": { "type": "process", "name": "5182.tmp", "pid": 5182 },
+        "1": { "type": "file", "name": "kF0wnCN24.README.txt", "path": "C:\\Users\\Public\\Desktop\\kF0wnCN24.README.txt" }
+      }
+    },
+    {
+      "type": "campaign",
+      "id": "campaign--lockbit-campaign-001",
+      "name": "LockBit 4.0 Albanian Infrastructure Campaign",
+      "description": "Targeted attacks against critical infrastructure in Albania using LockBit 4.0.",
+      "first_seen": "2025-01-08T00:00:00.000Z"
+    },
+    {
+      "type": "sighting",
+      "id": "sighting--lockbit-sighting-001",
+      "sighting_of_ref": "malware--7f6d4c0b-8b2a-4e1b-a2c8-1e4a9d2b6c3f",
+      "where_sighted_refs": ["identity--f5f1c5f1-2d6e-4f2b-8b3e-1d9c7b3a7caa"],
+      "first_seen": "2025-01-08T00:00:00.000Z",
+      "last_seen": "2025-01-08T23:59:00.000Z",
+      "count": 1,
+      "observed_data_refs": ["observed-data--0f3b4c7e-5a2d-4f1b-b2e3-7d6c1a8b9f2d"]
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--ta-uses-malware",
+      "relationship_type": "uses",
+      "source_ref": "threat-actor--8a7e0bfa-3d3f-4b28-a02b-1a5d9b6f0c1a",
+      "target_ref": "malware--7f6d4c0b-8b2a-4e1b-a2c8-1e4a9d2b6c3f"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--intrusion-campaign",
+      "relationship_type": "part-of",
+      "source_ref": "intrusion-set--4f2d8e9b-3e2c-4b1f-9a2b-7d3c1e4a5b6f",
+      "target_ref": "campaign--lockbit-campaign-001"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--malware-uses-powershell",
+      "relationship_type": "uses",
+      "source_ref": "malware--7f6d4c0b-8b2a-4e1b-a2c8-1e4a9d2b6c3f",
+      "target_ref": "attack-pattern--4d8f2c3a-5a7b-4b2c-a1f4-9d3e2b5c6f7a"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--malware-uses-dll",
+      "relationship_type": "uses",
+      "source_ref": "malware--7f6d4c0b-8b2a-4e1b-a2c8-1e4a9d2b6c3f",
+      "target_ref": "attack-pattern--3b7f4a9c-2e1d-4c8a-b1f7-6d2e9c3b8f7a"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--indicator-lbbps1",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--lbb-ps1",
+      "target_ref": "malware--7f6d4c0b-8b2a-4e1b-a2c8-1e4a9d2b6c3f"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--indicator-extractedps1",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--extracted-ps1",
+      "target_ref": "malware--7f6d4c0b-8b2a-4e1b-a2c8-1e4a9d2b6c3f"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--indicator-dll",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--dll-decompress",
+      "target_ref": "malware--7f6d4c0b-8b2a-4e1b-a2c8-1e4a9d2b6c3f"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--sighting-of-malware",
+      "relationship_type": "sighting-of",
+      "source_ref": "sighting--lockbit-sighting-001",
+      "target_ref": "malware--7f6d4c0b-8b2a-4e1b-a2c8-1e4a9d2b6c3f"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--campaign-attributed-ta",
+      "relationship_type": "attributed-to",
+      "source_ref": "campaign--lockbit-campaign-001",
+      "target_ref": "threat-actor--8a7e0bfa-3d3f-4b28-a02b-1a5d9b6f0c1a"
+    }
+  ]
+}
