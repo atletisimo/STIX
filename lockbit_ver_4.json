@@ -1,14 +1,12 @@
 {
   "type": "bundle",
   "spec_version": "2.1",
-  "id": "bundle--b7c68f11-4a6b-4c21-9f8a-8e5d7c1f2a90",
+  "id": "bundle--f2b8d7e9-1c4a-4d6b-9a2f-7b3c1e8d4f0a",
   "objects": [
     {
       "type": "identity",
       "spec_version": "2.1",
-      "id": "identity--f5f1c5f1-2d6e-4f2b-8b3e-1d9c7b3a7caa",
-      "created": "2026-03-05T00:00:00.000Z",
-      "modified": "2026-03-05T00:00:00.000Z",
+      "id": "identity--a1c2e3f4-5b6d-4c7f-8a9b-0d1e2f3a4b5c",
       "name": "Critical Infrastructure Organization - Albania",
       "identity_class": "organization",
       "sectors": ["critical-infrastructure"]
@@ -16,9 +14,7 @@
     {
       "type": "threat-actor",
       "spec_version": "2.1",
-      "id": "threat-actor--8a7e0bfa-3d3f-4b28-a02b-1a5d9b6f0c1a",
-      "created": "2026-03-05T00:00:00.000Z",
-      "modified": "2026-03-05T00:00:00.000Z",
+      "id": "threat-actor--b2d3f4a5-6c7e-4d8f-9b0c-1a2b3c4d5e6f",
       "name": "LockBit Ransomware Operators",
       "description": "Operators behind LockBit 4.0 ransomware campaigns. Known for double extortion attacks using PowerShell and DLL injection.",
       "goals": ["Financial gain through ransomware attacks"],
@@ -29,9 +25,7 @@
     {
       "type": "malware",
       "spec_version": "2.1",
-      "id": "malware--7f6d4c0b-8b2a-4e1b-a2c8-1e4a9d2b6c3f",
-      "created": "2026-03-05T00:00:00.000Z",
-      "modified": "2026-03-05T00:00:00.000Z",
+      "id": "malware--c3d4e5f6-7a8b-4c9d-9e0f-1b2c3d4e5f6a",
       "name": "LockBit 4.0",
       "malware_types": ["ransomware"],
       "is_family": true,
@@ -44,18 +38,14 @@
     {
       "type": "intrusion-set",
       "spec_version": "2.1",
-      "id": "intrusion-set--4f2d8e9b-3e2c-4b1f-9a2b-7d3c1e4a5b6f",
-      "created": "2026-03-05T00:00:00.000Z",
-      "modified": "2026-03-05T00:00:00.000Z",
+      "id": "intrusion-set--d4e5f6a7-8b9c-4d0e-9f1a-2b3c4d5e6f7a",
       "name": "LockBit Operations",
       "description": "Operations conducted by LockBit threat actors targeting critical infrastructure in Albania."
     },
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
-      "id": "attack-pattern--4d8f2c3a-5a7b-4b2c-a1f4-9d3e2b5c6f7a",
-      "created": "2026-03-05T00:00:00.000Z",
-      "modified": "2026-03-05T00:00:00.000Z",
+      "id": "attack-pattern--e5f6a7b8-9c0d-4e1f-8a2b-3c4d5e6f7a8b",
       "name": "PowerShell Execution",
       "description": "Use of PowerShell scripts to execute malicious code and bypass AMSI.",
       "external_references": [{ "source_name": "mitre-attack", "external_id": "T1059.001" }]
@@ -63,9 +53,7 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
-      "id": "attack-pattern--3b7f4a9c-2e1d-4c8a-b1f7-6d2e9c3b8f7a",
-      "created": "2026-03-05T00:00:00.000Z",
-      "modified": "2026-03-05T00:00:00.000Z",
+      "id": "attack-pattern--f6a7b8c9-0d1e-4f2a-9b3c-4d5e6f7a8b9c",
       "name": "DLL Injection",
       "description": "Injecting malicious DLLs into processes using VirtualAlloc and VirtualProtect.",
       "external_references": [{ "source_name": "mitre-attack", "external_id": "T1055.001" }]
@@ -73,60 +61,46 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--lbb-ps1",
-      "created": "2026-03-05T00:00:00.000Z",
-      "modified": "2026-03-05T00:00:00.000Z",
+      "id": "indicator--g7b8c9d0-1e2f-4a3b-9c4d-5e6f7a8b9c0d",
       "name": "LockBit PS1 File Hash",
       "pattern": "[file:hashes.'SHA-256' = '2f5051217414f6e465f4c9ad0f59c3920efe8ff11ba8e778919bac8bd53d915c']",
       "pattern_type": "stix",
-      "valid_from": "2025-01-08T00:00:00.000Z",
-      "observed_data_refs": ["observed-data--0f3b4c7e-5a2d-4f1b-b2e3-7d6c1a8b9f2d"]
+      "valid_from": "2025-01-08T00:00:00.000Z"
     },
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--extracted-ps1",
-      "created": "2026-03-05T00:00:00.000Z",
-      "modified": "2026-03-05T00:00:00.000Z",
+      "id": "indicator--h8c9d0e1-2f3a-4b4c-9d5e-6f7a8b9c0d1e",
       "name": "LockBit Extracted PS1 Hash",
       "pattern": "[file:hashes.'SHA-256' = '1BE78F50BB267900128F819C55B8512735C22418DC8A9A7DD4FA1B30F45A5C93']",
       "pattern_type": "stix",
-      "valid_from": "2025-01-08T00:00:00.000Z",
-      "observed_data_refs": ["observed-data--0f3b4c7e-5a2d-4f1b-b2e3-7d6c1a8b9f2d"]
+      "valid_from": "2025-01-08T00:00:00.000Z"
     },
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--dll-decompress",
-      "created": "2026-03-05T00:00:00.000Z",
-      "modified": "2026-03-05T00:00:00.000Z",
+      "id": "indicator--i9d0e1f2-3a4b-4c5d-9e6f-7a8b9c0d1e2f",
       "name": "LockBit DLL Decompress Hash",
       "pattern": "[file:hashes.'SHA-256' = '998AECB51A68208CAA358645A3D842576EEC6C443C2A7693125D6887563EA2B4']",
       "pattern_type": "stix",
-      "valid_from": "2025-01-08T00:00:00.000Z",
-      "observed_data_refs": ["observed-data--0f3b4c7e-5a2d-4f1b-b2e3-7d6c1a8b9f2d"]
+      "valid_from": "2025-01-08T00:00:00.000Z"
     },
     {
       "type": "observed-data",
       "spec_version": "2.1",
-      "id": "observed-data--0f3b4c7e-5a2d-4f1b-b2e3-7d6c1a8b9f2d",
-      "created": "2026-03-05T00:00:00.000Z",
-      "modified": "2026-03-05T00:00:00.000Z",
+      "id": "observed-data--j0e1f2a3-4b5c-4d6e-9f7a-8b9c0d1e2f3a",
       "first_observed": "2025-01-08T00:00:00.000Z",
       "last_observed": "2025-01-08T23:59:00.000Z",
       "number_observed": 1,
       "objects": {
         "0": { "type": "process", "name": "5182.tmp", "pid": 5182 },
         "1": { "type": "file", "name": "kF0wnCN24.README.txt", "path": "C:\\Users\\Public\\Desktop\\kF0wnCN24.README.txt" }
-      },
-      "object_refs": ["indicator--lbb-ps1","indicator--extracted-ps1","indicator--dll-decompress"]
+      }
     },
     {
       "type": "campaign",
       "spec_version": "2.1",
-      "id": "campaign--lockbit-campaign-001",
-      "created": "2026-03-05T00:00:00.000Z",
-      "modified": "2026-03-05T00:00:00.000Z",
+      "id": "campaign--k1f2g3h4-5i6j-4k7l-9m8n-0o1p2q3r4s5t",
       "name": "LockBit 4.0 Albanian Infrastructure Campaign",
       "description": "Targeted attacks against critical infrastructure in Albania using LockBit 4.0.",
       "first_seen": "2025-01-08T00:00:00.000Z"
@@ -134,16 +108,16 @@
     {
       "type": "sighting",
       "spec_version": "2.1",
-      "id": "sighting--lockbit-sighting-001",
-      "created": "2026-03-05T00:00:00.000Z",
-      "modified": "2026-03-05T00:00:00.000Z",
-      "sighting_of_ref": "malware--7f6d4c0b-8b2a-4e1b-a2c8-1e4a9d2b6c3f",
-      "where_sighted_refs": ["identity--f5f1c5f1-2d6e-4f2b-8b3e-1d9c7b3a7caa"],
+      "id": "sighting--l2g3h4i5-6j7k-4l8m-9n0o-1p2q3r4s5t6u",
+      "sighting_of_ref": "malware--c3d4e5f6-7a8b-4c9d-9e0f-1b2c3d4e5f6a",
+      "where_sighted_refs": ["identity--a1c2e3f4-5b6d-4c7f-8a9b-0d1e2f3a4b5c"],
       "first_seen": "2025-01-08T00:00:00.000Z",
       "last_seen": "2025-01-08T23:59:00.000Z",
       "count": 1,
-      "observed_data_refs": ["observed-data--0f3b4c7e-5a2d-4f1b-b2e3-7d6c1a8b9f2d"]
+      "observed_data_refs": ["observed-data--j0e1f2a3-4b5c-4d6e-9f7a-8b9c0d1e2f3a"]
     },
+
+
     {
       "type": "relationship",
       "spec_version": "2.1",
@@ -151,8 +125,8 @@
       "created": "2026-03-05T00:00:00.000Z",
       "modified": "2026-03-05T00:00:00.000Z",
       "relationship_type": "uses",
-      "source_ref": "threat-actor--8a7e0bfa-3d3f-4b28-a02b-1a5d9b6f0c1a",
-      "target_ref": "malware--7f6d4c0b-8b2a-4e1b-a2c8-1e4a9d2b6c3f"
+      "source_ref": "threat-actor--b2d3f4a5-6c7e-4d8f-9b0c-1a2b3c4d5e6f",
+      "target_ref": "malware--c3d4e5f6-7a8b-4c9d-9e0f-1b2c3d4e5f6a"
     },
     {
       "type": "relationship",
@@ -161,8 +135,8 @@
       "created": "2026-03-05T00:00:00.000Z",
       "modified": "2026-03-05T00:00:00.000Z",
       "relationship_type": "part-of",
-      "source_ref": "intrusion-set--4f2d8e9b-3e2c-4b1f-9a2b-7d3c1e4a5b6f",
-      "target_ref": "campaign--lockbit-campaign-001"
+      "source_ref": "intrusion-set--d4e5f6a7-8b9c-4d0e-9f1a-2b3c4d5e6f7a",
+      "target_ref": "campaign--k1f2g3h4-5i6j-4k7l-9m8n-0o1p2q3r4s5t"
     },
     {
       "type": "relationship",
@@ -171,8 +145,8 @@
       "created": "2026-03-05T00:00:00.000Z",
       "modified": "2026-03-05T00:00:00.000Z",
       "relationship_type": "uses",
-      "source_ref": "malware--7f6d4c0b-8b2a-4e1b-a2c8-1e4a9d2b6c3f",
-      "target_ref": "attack-pattern--4d8f2c3a-5a7b-4b2c-a1f4-9d3e2b5c6f7a"
+      "source_ref": "malware--c3d4e5f6-7a8b-4c9d-9e0f-1b2c3d4e5f6a",
+      "target_ref": "attack-pattern--e5f6a7b8-9c0d-4e1f-8a2b-3c4d5e6f7a8b"
     },
     {
       "type": "relationship",
@@ -181,8 +155,8 @@
       "created": "2026-03-05T00:00:00.000Z",
       "modified": "2026-03-05T00:00:00.000Z",
       "relationship_type": "uses",
-      "source_ref": "malware--7f6d4c0b-8b2a-4e1b-a2c8-1e4a9d2b6c3f",
-      "target_ref": "attack-pattern--3b7f4a9c-2e1d-4c8a-b1f7-6d2e9c3b8f7a"
+      "source_ref": "malware--c3d4e5f6-7a8b-4c9d-9e0f-1b2c3d4e5f6a",
+      "target_ref": "attack-pattern--f6a7b8c9-0d1e-4f2a-9b3c-4d5e6f7a8b9c"
     },
     {
       "type": "relationship",
@@ -191,8 +165,8 @@
       "created": "2026-03-05T00:00:00.000Z",
       "modified": "2026-03-05T00:00:00.000Z",
       "relationship_type": "indicates",
-      "source_ref": "indicator--lbb-ps1",
-      "target_ref": "malware--7f6d4c0b-8b2a-4e1b-a2c8-1e4a9d2b6c3f"
+      "source_ref": "indicator--g7b8c9d0-1e2f-4a3b-9c4d-5e6f7a8b9c0d",
+      "target_ref": "malware--c3d4e5f6-7a8b-4c9d-9e0f-1b2c3d4e5f6a"
     },
     {
       "type": "relationship",
@@ -201,8 +175,8 @@
       "created": "2026-03-05T00:00:00.000Z",
       "modified": "2026-03-05T00:00:00.000Z",
       "relationship_type": "indicates",
-      "source_ref": "indicator--extracted-ps1",
-      "target_ref": "malware--7f6d4c0b-8b2a-4e1b-a2c8-1e4a9d2b6c3f"
+      "source_ref": "indicator--h8c9d0e1-2f3a-4b4c-9d5e-6f7a8b9c0d1e",
+      "target_ref": "malware--c3d4e5f6-7a8b-4c9d-9e0f-1b2c3d4e5f6a"
     },
     {
       "type": "relationship",
@@ -211,8 +185,8 @@
       "created": "2026-03-05T00:00:00.000Z",
       "modified": "2026-03-05T00:00:00.000Z",
       "relationship_type": "indicates",
-      "source_ref": "indicator--dll-decompress",
-      "target_ref": "malware--7f6d4c0b-8b2a-4e1b-a2c8-1e4a9d2b6c3f"
+      "source_ref": "indicator--i9d0e1f2-3a4b-4c5d-9e6f-7a8b9c0d1e2f",
+      "target_ref": "malware--c3d4e5f6-7a8b-4c9d-9e0f-1b2c3d4e5f6a"
     },
     {
       "type": "relationship",
@@ -221,8 +195,8 @@
       "created": "2026-03-05T00:00:00.000Z",
       "modified": "2026-03-05T00:00:00.000Z",
       "relationship_type": "sighting-of",
-      "source_ref": "sighting--lockbit-sighting-001",
-      "target_ref": "malware--7f6d4c0b-8b2a-4e1b-a2c8-1e4a9d2b6c3f"
+      "source_ref": "sighting--l2g3h4i5-6j7k-4l8m-9n0o-1p2q3r4s5t6u",
+      "target_ref": "malware--c3d4e5f6-7a8b-4c9d-9e0f-1b2c3d4e5f6a"
     },
     {
       "type": "relationship",
@@ -231,8 +205,8 @@
       "created": "2026-03-05T00:00:00.000Z",
       "modified": "2026-03-05T00:00:00.000Z",
       "relationship_type": "attributed-to",
-      "source_ref": "campaign--lockbit-campaign-001",
-      "target_ref": "threat-actor--8a7e0bfa-3d3f-4b28-a02b-1a5d9b6f0c1a"
+      "source_ref": "campaign--k1f2g3h4-5i6j-4k7l-9m8n-0o1p2q3r4s5t",
+      "target_ref": "threat-actor--b2d3f4a5-6c7e-4d8f-9b0c-1a2b3c4d5e6f"
     }
   ]
 }
