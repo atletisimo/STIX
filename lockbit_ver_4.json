@@ -29,7 +29,11 @@
       "name": "LockBit 4.0",
       "malware_types": ["ransomware"],
       "is_family": true,
-      "description": "A ransomware variant that encrypts files quickly and leverages double extortion."
+      "description": "A ransomware variant that encrypts files quickly and leverages double extortion.",
+      "kill_chain_phases": [
+        { "kill_chain_name": "lockbit-attack", "phase_name": "execution" },
+        { "kill_chain_name": "lockbit-attack", "phase_name": "impact" }
+      ]
     },
     {
       "type": "intrusion-set",
@@ -123,14 +127,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--intrusion-campaign",
-      "relationship_type": "part-of",
-      "source_ref": "intrusion-set--4f2d8e9b-3e2c-4b1f-9a2b-7d3c1e4a5b6f",
-      "target_ref": "campaign--lockbit-campaign-001"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--malware-uses-powershell",
       "relationship_type": "uses",
       "source_ref": "malware--7f6d4c0b-8b2a-4e1b-a2c8-1e4a9d2b6c3f",
@@ -183,6 +179,14 @@
       "relationship_type": "attributed-to",
       "source_ref": "campaign--lockbit-campaign-001",
       "target_ref": "threat-actor--8a7e0bfa-3d3f-4b28-a02b-1a5d9b6f0c1a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--intrusion-campaign",
+      "relationship_type": "part-of",
+      "source_ref": "intrusion-set--4f2d8e9b-3e2c-4b1f-9a2b-7d3c1e4a5b6f",
+      "target_ref": "campaign--lockbit-campaign-001"
     }
   ]
 }
